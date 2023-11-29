@@ -7,13 +7,13 @@ def assert_logs(log_json) -> dict:
     test_no = 1
     for test in log_json['runs'][-1]['tests']:
         if(test['attempts'][-1]['state']=='failed'):
-            tc = "Test Case "+str(test_no)+": "+test['title'][1] +" - "+ test['title'][2]
+            tc = "Test Case "+str(test_no)+": "+test['title'][0] +" - "+ test['title'][1]
             status = "TEST_STATUS_FAILURE"
         elif(test['attempts'][-1]['state']=='passed'):
-            tc = "Test Case "+str(test_no)+": "+test['title'][1] +" - "+ test['title'][2]
+            tc = "Test Case "+str(test_no)+": "+test['title'][0] +" - "+ test['title'][1]
             status = "TEST_STATUS_SUCCESS"
         else:
-            tc = "Test Case "+str(test_no)+": "+test['title'][1] +" - "+ test['title'][2]
+            tc = "Test Case "+str(test_no)+": "+test['title'][0] +" - "+ test['title'][1]
             status = "TEST_STATUS_SKIPPED"
         test_no = test_no + 1
         print(tc+"\n"+"Results: "+status+"\n---------------------------------------------")
