@@ -28,5 +28,5 @@ if __name__ == "__main__":
     print("Reading filtered logs done")
     assessment_result = assert_logs(log_json)
     print("Writing into assessment_results.json")
-    with open("assessment_result.json", 'w+') as f:
+    with open("assesment_result.json", 'w+') as f:
         json.dump(assessment_result, f, indent=4)
