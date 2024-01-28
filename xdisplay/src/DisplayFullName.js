@@ -7,14 +7,16 @@ const DisplayFullName = () => {
 
   const firstNameHandler = (event) => {
     setFirstName(event.target.value);
+    setSubmit(false)
+
   };
   const lastNameHandaler=(event)=>{
     setLastName(event.target.value)
+    setSubmit(false)
+
   }
   const submitHandler = (event) => {
     event.preventDefault(); // Prevents the default form submission behavior
-    setFirstName(firstname)
-    setLastName(lastname)
     setSubmit(true)
   };
 
@@ -30,7 +32,7 @@ const DisplayFullName = () => {
           <label>Lastname</label>
           <input type='text' value={lastname} onChange={lastNameHandaler} required/>
         </div>
-        <button type="submit"  >Submit</button>
+        <button type="submit">Submit</button>
       </form>
       {submit && <p>{`${firstname} ${lastname}`}</p>}
     </>
